@@ -49,11 +49,15 @@ div nav {
     padding-bottom: 50px;
 }
 
-.nav_item {
+nav {
     color: black;
 }
 
 .nav_item .current {
     background-color: black;
     color:white;
+}
+
+:visited {
+    color: black;
 }
