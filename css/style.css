@@ -48,3 +48,12 @@ div nav {
     padding-left: 50px; 
     padding-bottom: 50px;
 }
+
+.nav_item {
+    color: black;
+}
+
+.nav_item .current {
+    background-color: black;
+    color:white;
+}
