@@ -1,11 +1,84 @@
+
+
+.nav_links {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-evenly;
+    align-items: center;
+    list-style-type: none;
+}
+
+nav {
+    padding: 35px;
+}
+
+.card nav {
+    padding: 50px;
+}
+
+
+/* ---------------------  Contact Form ------------------ */
+
+
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid rgb(230, 240, 240); /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: black;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #545454;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    background-color: rgb(230, 240, 240);
+    padding: 20px;
+  }
+
+
+
+/* ---------------------  Contact Form ------------------ */
+
+
+
+footer {
+
+    bottom: 0px;
+}
+
 body {
     font-family: 'Roboto Mono', monospace;
     margin: auto;
 }
 
-h1 {
+header h1 {
+    font-size: large;
+    padding-top: 180px;
+
+}
+
+.grid-container h1 {
     font-size: large;
     padding-left: 50px;
+
 }
 
 h2 {
@@ -16,17 +89,17 @@ h3 {
     padding-left: 50px;
 }
 
-.title {
+/* .title {
     font-size: 60px;
     text-align: center;
-}
+} */
 
 p {
     padding: 0px 50px 50px 50px;
 
 }
 
-img{
+.card img{
 
     height: auto;
     padding: 25px;
@@ -42,17 +115,11 @@ img{
     background: rgb(230, 240, 240);
     border-radius: 7px;
     height: auto;
+
     
 }
 
-div nav {
-    padding-left: 50px; 
-    padding-bottom: 50px;
-}
 
-nav {
-    color: black;
-}
 
 .nav_item .current {
     background-color: black;
@@ -63,7 +130,10 @@ nav {
     color: black;
 }
 
+
+
 .grid-container {
+
     margin: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -111,7 +181,126 @@ nav {
     background: #000000;
     cursor: pointer;
   }
+
 /* ------------------------- Slider ------------------------------------ */
+
+#parallax{
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center; /* Parallax effect */
+    background-size: cover; /* Parallax effect */
+    color: white;
+    height: 400px; /* Parallax effect */
+    overflow: hidden;
+  
+    /* YOUR CODE HERE; */
+
+    background-image: url("../images/parallax-img-edit.png");
+    background-repeat: no-repeat;
+  }
+
+
+
+
+  a.skip{
+    background: white;
+    color: black;
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: -40px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+  }
+  
+  a.skip:focus{
+    top:20px;
+    /* color: black;
+    text-decoration-style: solid; */
+  }
+
+
+
+
+  .title {
+
+    overflow: hidden;
+    position: relative;
+   }
+   .title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 60px;
+    text-align: center;
+    overflow: hidden;
+   
+    /* Apply animation to this element */	
+    animation: title 2s ease-out;
+   }
+
+
+/* Flip Card */
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 360px;
+    border: 1px solid #f1f1f1;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* perspective: 1000px; */
+}
+  
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner,
+.flip-card:active .flip-card-inner,
+.flip-card:focus .flip-card-inner {
+    transform: rotateY(180deg);
+}
+  
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front img{
+    width: 100%;
+
+    padding: none;
+}
+  
+.flip-card-back {
+    background-color:#000000;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+
+
+   @keyframes title {
+    0%   { 
+    transform: translateX(200%); 		
+    }
+    100% { 
+    transform: translateX(0%); 
+    }
+   }
+
 
 @media screen and (min-width: 850px){
     .grid-container {
@@ -121,4 +310,25 @@ nav {
         grid-gap: 20px;
     }
 
+}
+
+@media screen and (prefers-reduced-motion: reduce){
+    /*Turn off scroll*/
+    html {
+        scroll-behavior: auto; /* Removes scroll animation */
+    }
+  
+    /* Turn off text fly in */
+    .title {
+        animation: none;
+    }
+  
+    /*Turn off parallax*/
+    #parallax {
+      background-attachment: initial;
+    }
+
+    .flip-card-inner {
+        transition: none;
+    }
 }
